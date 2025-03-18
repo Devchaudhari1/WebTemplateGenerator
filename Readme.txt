@@ -31,10 +31,4 @@ npm i express , mysql2 , axios
 npx install -D tailwindcss@3 
 npx tailwindcss@3 -i ./views/input.css -o ./views/output.css --watch 
 
-
-
-
-
-
-
-//change {name}Id every time in controllers by searching in sql sheet
+//check {name}Id every time in controllers by searching in sql sheet .It might not correspond to the one mentioned in delete{name}() , update{name}() 
