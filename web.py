@@ -184,8 +184,9 @@ with open(viewshtml,'w') as vh:
     vh.write(f"\n\n<button id =\"searchBtn\"> &#x1F50D</button> ")
     r=0
     while i<c:
-        if "enum" in column[i] :
+        if "enum" in type[i] :
             for t in range(size[r]):
+                print(f"\t\t<input type=\"radio\" name=\"{column[i]}Choice\" value=\"{en[k]}\">{en[k]}</input>\n")
                 vh.write(f"\t\t<input type=\"radio\" name=\"{column[i]}Choice\" value=\"{en[k]}\">{en[k]}</input>")
                 k+=1
                 vh.write(f"\n")
@@ -266,7 +267,7 @@ with open(viewsjs,'w') as vj :
     vj.write(f"let input=searchBar.value.trim();\n")
     vj.write(f"choice.push([\"id\",`${{input}}`]);\n")
     while i<c:
-        if "enum" in column[i] :
+        if "enum" in type[i] :
             vj.write(f"\n\nconst {column[i]}Choice = document.querySelector(\'input[name=\"{column[i]}Choice\"]:checked\');\n  \n")
             vj.write(f"if({column[i]})\n")
             vj.write(f"choice.push([\"{column[i]}\",{column[i]}Choice.value]);\n\n\n")
