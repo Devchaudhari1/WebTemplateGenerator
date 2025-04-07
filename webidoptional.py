@@ -246,7 +246,7 @@ with open(viewshtml,'w') as vh:
             r+=1
         i+=1
     vh.write(f"\n</form>\n\n")
-    vh.write(f"\n<li id=\"{name}List\" class=\"list\"></li>\n\n")
+    vh.write(f"\n<li id=\"{name}List\"></li>\n\n")
     vh.write(f"        </div>\n")
     vh.write(f"\n\n<script src=\"{name}.js\"></script>\n\n")
     i=0
@@ -552,7 +552,7 @@ with open(controllersjs,'w') as cj :
     cj.write("const {")
     i=0
     while i< c-1:
-        if(type[i]=='timestamp' or column[i]==primarykey[0]):
+        if(type[i]=='timestamp'):
             i+=1
             continue
         cj.write(f"{column[i]},")
@@ -562,7 +562,7 @@ with open(controllersjs,'w') as cj :
     cj.write(f"console.log(req.body);\n    conn.query(\"Insert into {name}(")
     i=0
     while i< c-1:
-        if(type[i]=='timestamp' or column[i]==primarykey[0]):
+        if(type[i]=='timestamp'):
             i+=1
             continue
         cj.write(f"{column[i]} ,")
@@ -571,7 +571,7 @@ with open(controllersjs,'w') as cj :
     cj.write(") values (")
     i=0
     while i<c-1 :
-        if(type[i]=='timestamp' or column[i]==primarykey[0]):
+        if(type[i]=='timestamp'):
             i+=1
             continue
         cj.write("?,")
@@ -580,7 +580,7 @@ with open(controllersjs,'w') as cj :
     cj.write(")\", [")
     i=0
     while i< c-1:
-        if(type[i]=='timestamp' or column[i]==primarykey[0]):
+        if(type[i]=='timestamp'):
             i+=1
             continue
         cj.write(f"{column[i]},")
